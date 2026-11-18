@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مجتمع رواحل</title>
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#18174a;color:#cfd1ee;font-family:Tahoma,Arial,sans-serif}p{font-size:16px}</style>
+</head>
+<body>
+<p id="m">جارٍ تحميل موقع مجتمع رواحل…</p>
+<script>
+window.RW_LIVE = true;
+fetch("https://script.google.com/macros/s/AKfycbwaZJP5qu6dGlywLHWZ7rumxD1eYcEJLMv_KeDRz8q7EjUirPWGIgxVj_FF7yXCSEVL/exec", {
+  method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: JSON.stringify({fn: "page"}), credentials: "omit"
+}).then(function (r) { return r.json(); }).then(function (o) {
+  if (!o.ok) throw new Error(o.error);
+  document.open(); document.write(o.data); document.close();
+}).catch(function () {
+  document.getElementById("m").textContent = "تعذّر تحميل الموقع. حدّث الصفحة بعد قليل.";
+});
+</script>
+</body>
+</html>
